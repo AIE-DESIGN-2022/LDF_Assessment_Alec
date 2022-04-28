@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 797398738606809810}
   - component: {fileID: 1614318205656627459}
   m_Layer: 0
-  m_Name: Enemy_HoverBotLong
+  m_Name: Enemy_HoverBot
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   EyeColorMaterial: {fileID: 2100000, guid: e6fdfd4e017234d43ac116abee8fa90a, type: 2}
   DefaultEyeColor: {r: 23.849056, g: 7.292185, b: 0, a: 1}
   AttackEyeColor: {r: 32, g: 1.4610044, b: 0, a: 1}
-  BodyMaterial: {fileID: 2100000, guid: 3c2f18e57b97d114b83cc5fcd792eb29, type: 2}
+  BodyMaterial: {fileID: 2100000, guid: c3dc5a90c49c99142999f85d6b419d80, type: 2}
   OnHitBodyGradient:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
@@ -467,8 +467,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DetectionSourcePoint: {fileID: 6571005840976436832}
-  DetectionRange: 30
-  AttackRange: 30
+  DetectionRange: 20
+  AttackRange: 10
   KnownTargetTimeout: 12
   Animator: {fileID: 0}
 --- !u!1 &6421371450313891992
@@ -697,7 +697,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &1997026530960526579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,10 +1101,6 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 13700000, guid: 8e64c7aa328349d4ea713298f19a414f, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3c2f18e57b97d114b83cc5fcd792eb29, type: 2}
     - target: {fileID: 13700002, guid: 8e64c7aa328349d4ea713298f19a414f, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -1113,10 +1109,6 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 13700004, guid: 8e64c7aa328349d4ea713298f19a414f, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3c2f18e57b97d114b83cc5fcd792eb29, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e64c7aa328349d4ea713298f19a414f, type: 3}
 --- !u!95 &320366457759794871 stripped
