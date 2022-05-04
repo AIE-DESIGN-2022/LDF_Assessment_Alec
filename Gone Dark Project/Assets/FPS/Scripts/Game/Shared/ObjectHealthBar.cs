@@ -5,7 +5,7 @@ namespace Unity.FPS.Game
 {
     public class ObjectHealthBar : MonoBehaviour
     {
-        public ObjectHealth objectHealth;
+        public Health objectHealth;
 
         [Tooltip("Image component displaying health left")]
         public Image HealthBarImage;
@@ -19,7 +19,7 @@ namespace Unity.FPS.Game
         private void Start()
         {
             if (objectHealth == null)
-                objectHealth = GetComponent<ObjectHealth>();
+                objectHealth = GetComponent<Health>();
         }
 
         void Update()

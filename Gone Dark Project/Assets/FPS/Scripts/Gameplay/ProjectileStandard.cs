@@ -234,7 +234,14 @@ namespace Unity.FPS.Gameplay
                 Damageable damageable = collider.GetComponent<Damageable>();
                 if (damageable)
                 {
-                    damageable.InflictDamage(Damage, false, m_ProjectileBase.Owner);
+                    if (collider.transform.tag == "Boss")
+                    {
+                        damageable.InflictDamage(Damage, false, m_ProjectileBase.Owner, true);
+                    }
+                    else
+                    {
+                        damageable.InflictDamage(Damage, false, m_ProjectileBase.Owner, false);
+                    }
                 }
             }
 

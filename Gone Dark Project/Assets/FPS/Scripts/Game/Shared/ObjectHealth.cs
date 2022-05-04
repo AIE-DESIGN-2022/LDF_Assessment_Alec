@@ -16,6 +16,10 @@ namespace Unity.FPS.Game
 
         bool m_IsDead;
 
+        public GameObject damageArea;
+        public GameObject TNT;
+
+
         void Start()
         {
             CurrentHealth = MaxHealth;
@@ -42,8 +46,15 @@ namespace Unity.FPS.Game
             if (CurrentHealth <= 0f)
             {
                 m_IsDead = true;
-                Destroy(this.gameObject);
+                damageArea.SetActive(true);
+                Destroy(TNT);
+                Invoke("WaitForExplosion", 1.5f);
+
             }
+        }
+        void WaitForExplosion()
+        {
+            Destroy(this.gameObject);
         }
     }
 }

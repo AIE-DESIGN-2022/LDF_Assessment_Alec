@@ -9,7 +9,8 @@ public class EnemySpawnerType : MonoBehaviour
     {
         ShortRange,
         MediumRange,
-        LongRange
+        LongRange,
+        Boss
     };
     public EnemyRange thisEnemy;
 

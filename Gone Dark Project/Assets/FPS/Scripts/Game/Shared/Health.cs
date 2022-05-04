@@ -23,6 +23,11 @@ namespace Unity.FPS.Game
 
         bool m_IsDead;
 
+
+        public GameObject damageArea;
+        public GameObject explosiveObjectMesh;
+        public bool onceOnly;
+
         void Start()
         {
             CurrentHealth = MaxHealth;
@@ -81,7 +86,22 @@ namespace Unity.FPS.Game
             {
                 m_IsDead = true;
                 OnDie?.Invoke();
+                if (explosiveObjectMesh != null)
+                {
+                    damageArea.SetActive(true);
+                    Destroy(explosiveObjectMesh);
+                    Invoke("WaitForExplosion", 1.5f);
+                }
             }
+        }
+        void WaitForExplosion()
+        {
+            if (!onceOnly)
+            {
+                BombRespawner respawner = GetComponentInParent<BombRespawner>();
+                respawner.CloneBomb();
+            }
+            Destroy(this.gameObject);
         }
     }
 }

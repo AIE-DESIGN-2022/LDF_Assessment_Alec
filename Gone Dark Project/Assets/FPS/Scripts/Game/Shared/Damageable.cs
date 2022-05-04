@@ -30,46 +30,59 @@ namespace Unity.FPS.Game
             }
         }
 
-        public void InflictDamage(float damage, bool isExplosionDamage, GameObject damageSource)
+        public void InflictDamage(float damage, bool isExplosionDamage, GameObject damageSource, bool isBoss)
         {
-            if (Health)
+            if (!isBoss)
             {
-                var totalDamage = damage;
-
-                // skip the crit multiplier if it's from an explosion
-                if (!isExplosionDamage)
+                if (Health)
                 {
-                    totalDamage *= DamageMultiplier;
-                }
+                    var totalDamage = damage;
 
-                // potentially reduce damages if inflicted by self
-                if (Health.gameObject == damageSource)
+                    // skip the crit multiplier if it's from an explosion
+                    if (!isExplosionDamage)
+                    {
+                        totalDamage *= DamageMultiplier;
+                    }
+
+                    // potentially reduce damages if inflicted by self
+                    if (Health.gameObject == damageSource)
+                    {
+                        totalDamage *= SensibilityToSelfdamage;
+                    }
+
+                    // apply the damages
+                    Health.TakeDamage(totalDamage, damageSource);
+                }
+                else
                 {
-                    totalDamage *= SensibilityToSelfdamage;
-                }
+                    var totalDamage = damage;
 
-                // apply the damages
-                Health.TakeDamage(totalDamage, damageSource);
+                    // skip the crit multiplier if it's from an explosion
+                    if (!isExplosionDamage)
+                    {
+                        totalDamage *= DamageMultiplier;
+                    }
+
+                    // potentially reduce damages if inflicted by self
+                    if (objectHealth.gameObject == damageSource)
+                    {
+                        totalDamage *= SensibilityToSelfdamage;
+                    }
+
+                    // apply the damages
+                    objectHealth.TakeDamage(totalDamage, damageSource);
+                }
             }
             else
             {
-                var totalDamage = damage;
-
-                // skip the crit multiplier if it's from an explosion
-                if (!isExplosionDamage)
+                if (isExplosionDamage)
                 {
-                    totalDamage *= DamageMultiplier;
-                }
+                    var totalDamage = damage;
 
-                // potentially reduce damages if inflicted by self
-                if (objectHealth.gameObject == damageSource)
-                {
-                    totalDamage *= SensibilityToSelfdamage;
+                    // apply the damages
+                    Health.TakeDamage(totalDamage, damageSource);
                 }
-
-                // apply the damages
-                objectHealth.TakeDamage(totalDamage, damageSource);
             }
-        }
+        }  
     }
 }

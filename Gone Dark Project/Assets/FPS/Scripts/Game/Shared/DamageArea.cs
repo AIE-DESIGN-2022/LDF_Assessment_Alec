@@ -13,7 +13,7 @@ namespace Unity.FPS.Game
 
         [Header("Debug")] [Tooltip("Color of the area of effect radius")]
         public Color AreaOfEffectColor = Color.red * 0.5f;
-
+        public bool isExplosion;
         public void InflictDamageInArea(float damage, Vector3 center, LayerMask layers,
             QueryTriggerInteraction interaction, GameObject owner)
         {
@@ -37,9 +37,19 @@ namespace Unity.FPS.Game
             // Apply damages with distance falloff
             foreach (Damageable uniqueDamageable in uniqueDamagedHealths.Values)
             {
-                float distance = Vector3.Distance(uniqueDamageable.transform.position, transform.position);
-                uniqueDamageable.InflictDamage(
-                    damage * DamageRatioOverDistance.Evaluate(distance / AreaOfEffectDistance), true, owner);
+                bool isBoss = false;
+                if (uniqueDamageable.transform.tag == "Boss")
+                {
+                    float distance = Vector3.Distance(uniqueDamageable.transform.position, transform.position);
+                    uniqueDamageable.InflictDamage(
+                        damage * DamageRatioOverDistance.Evaluate(distance / AreaOfEffectDistance), true, owner, true);
+                }
+                else
+                {
+                    float distance = Vector3.Distance(uniqueDamageable.transform.position, transform.position);
+                    uniqueDamageable.InflictDamage(
+                        damage * DamageRatioOverDistance.Evaluate(distance / AreaOfEffectDistance), true, owner, false);
+                }
             }
         }
 

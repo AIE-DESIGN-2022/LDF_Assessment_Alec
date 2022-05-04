@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyLongRange;
     public GameObject enemyMediumRange;
     public GameObject enemyShortRange;
+    public GameObject enemyBoss;
     public int numberOfEnemiesToSpawn;
 
     // Start is called before the first frame update
@@ -28,6 +29,10 @@ public class EnemySpawner : MonoBehaviour
             else if (enemyName == "LongRange")
             {
                 GameObject instantiatedEnemy = Instantiate(enemyLongRange, locationsToSpawn[randomNumber].transform.position, locationsToSpawn[randomNumber].transform.rotation, locationsToSpawn[randomNumber].transform);
+            }
+            else if (enemyName == "Boss")
+            {
+                GameObject instantiatedEnemy = Instantiate(enemyBoss, locationsToSpawn[randomNumber].transform.position, locationsToSpawn[randomNumber].transform.rotation, locationsToSpawn[randomNumber].transform);
             }
             locationsToSpawn.Remove(locationsToSpawn[randomNumber]);
         }
