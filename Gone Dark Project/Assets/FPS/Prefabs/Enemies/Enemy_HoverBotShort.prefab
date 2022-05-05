@@ -198,6 +198,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 300
   CriticalHealthRatio: 0.3
+  damageArea: {fileID: 0}
+  explosiveObjectMesh: {fileID: 0}
+  onceOnly: 0
 --- !u!114 &3464315327790461765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -777,7 +780,7 @@ MonoBehaviour:
   ShootType: 1
   ProjectilePrefab: {fileID: 8924682559891268397, guid: ec753d54f333bb944b8b04884ad63828,
     type: 3}
-  DelayBetweenShots: 0.2
+  DelayBetweenShots: 0.5
   BulletSpreadAngle: 0
   BulletsPerShot: 1
   RecoilForce: 1
