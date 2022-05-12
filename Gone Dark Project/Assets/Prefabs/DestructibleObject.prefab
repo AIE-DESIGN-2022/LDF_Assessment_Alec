@@ -38581,7 +38581,7 @@ PrefabInstance:
     - target: {fileID: 1203337828444365110, guid: 0e23901b938cf4f4eb86850d912715eb,
         type: 3}
       propertyPath: AreaOfEffectDistance
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4586553711376434637, guid: 0e23901b938cf4f4eb86850d912715eb,
         type: 3}
